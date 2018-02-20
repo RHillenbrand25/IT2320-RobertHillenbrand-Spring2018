@@ -1,0 +1,23 @@
+<!-- <button value="Display Date" onclick="displayDate()">Time</button> -->
+<!-- <input type="button" value="Display Date" onclick="displayDate()"> -->
+
+<button type="button" value="Display Date"
+onclick="document.getElementById('ISOdate').innerHTML = Date()">
+Date and Time 1.</button>
+
+<button type="button" value="Display Date"
+onclick="document.getElementById('Shortdate').innerHTML = Date()">
+Date and Time 2.</button>
+
+<button type="button" value="Display Date"
+onclick="document.getElementById('Longdate').innerHTML = Date()">
+Date and Time 3.</button>
+
+<p id="ISOdate"></p>
+<p id="Shortdate"></p>
+<p id="Longdate"></p>
+<script>
+    document.getElementById("ISOdate").innerHTML = new Date("2018-02");
+    document.getElementById("Shortdate").innerHTML = new Date("02/13/2018");
+    document.getElementById("date3").innerHTML = new Date("Feb 13 2018");
+</script>

@@ -27,6 +27,17 @@
 <body>
 <h1>Check Type</h1>
 Value: <input type="text" id="valueToCheck"> <input type="button" value="Check Type">
+
+<script>
+    var x = document.getElementById("valueToCheck").innerHTML;
+</script>
+
+<script>
+    document.getElementById("valueToCheck").innerHTML = 
+  typeof 3.14 + "<br>" +
+  typeof null;
+    </script>
+
 <span id="typeInfo"> </span>
 </body>
 </html> 
