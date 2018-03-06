@@ -12,32 +12,42 @@
         var newAmount = document.getElementById('newAmount').value;
 
         // 1. Add the value of newAmount to the running total totalAmount. Tip: Use parseFloat()
-
-    
+        totalAmount = parseFloat(totalAmount) + parseFloat(newAmount);
+        document.getElementById('totalAmountBeforeTax').innerHTML = totalAmount.toFixed(2);
         var itemDescription = document.getElementById('newItem').value;
         items = items.replace("</table>", "");
 
         // 2. Concatenate the value of Item Description into the table. Change item to the value of itemDescription
         //items += "<tr><td>Item</td><td>$" + newAmount + "</td></tr>"
-        items += "<tr><td>item</td><td>$" + parseFloat(newAmount).toFixed(2) + "</td></tr>"
-        items += "</table>";
+        //items += "</table>";
+        var strone = items +="<tr><td>" + itemDescription + "</td><td>$" + (newAmount) + "</td></tr></table>";
         
-        // Display items in element with id="listOfElements"
-        document.getElementById('listOfItems').innerHTML = items;
+        //var res = strone.concat(strtwo);
+        document.getElementById('newItem').innerHTML = strone;
 
-        /// 3. Display totalAmount in element with id="totalAmountBeforeTax"
+        // Display items in element with id="listOfElements"
+        document.getElementById('listOfElements').innerHTML = items;
+
+        // 3. Display totalAmount in element with id="totalAmountBeforeTax"
+        document.getElementById('totalAmountBeforeTax').innerHTML = totalAmount;
 
         // 4. Calculate tax as 7% of total (totalAmount)
-        var taxAmount = 0;
+        var price = document.getElementById("newAmount").value;
+        var taxAmount = 0.07;
 
         // 5. Display tax in element with id="totalTax"
+        document.getElementById("totalTax").innerHTML = taxAmount;
 
         // 6. Display totalAmount + tax in element with id="totalAfterTax"
+        document.getElementById("totalAfterTax").innerHTML = totalAmount + taxAmount;
 
         // 7. Display all currency values that are output to display 2 decimal places
         //      Hint: use toFixed()
 
-        
+        document.getElementById('totalAmountBeforeTax').innerHTML = toFixed(2);
+        document.getElementById("totalTax").innerHTML = toFixed(2);
+        document.getElementById('TotalAfterTax').innerHTML = toFixed(2);
+
         document.getElementById('newItem').value = "";
         document.getElementById('newAmount').value = "";
         document.getElementById('newItem').focus();
@@ -53,7 +63,7 @@ Amount: <br><input type="text" id="newAmount">
 <input type="button" onclick="addItem()" value="Add Item">
 </p>
 <h2>Grocery Cart</h2>
-<span id="listOfItems">&nbsp;</span>
+<span id="listOfElements">&nbsp;</span>
 <p>
 <h2>Total</h2>
 Total: $<span id="totalAmountBeforeTax"></span><br>
